@@ -23,7 +23,11 @@ jobs:
       run: npm install
     - name: Start Server
       run: npm run start-be &
+    - name: Sleep 5 sec
+      run: sleep 5
     - name: Start App
       run: npm start &
+    - name: Sleep 5 sec
+      run: sleep 5
     - name: Run UI Tests
       run: npm run test-ui
