@@ -161,4 +161,28 @@ test('Submit the form with Empty Password Input Field', async ({ page }) => {
 
 });
 
+test('Add book with correct data', async ({ page }) => {
+    await page.goto('http://localhost:3001/login');
+    await page.fill('input[name="email"]', 'peter@abv.bg');
+    await page.fill('input[name="password"]', '123456');
+
+    await Promise.all([
+        page.click('input[type="submit"]'),
+        page.waitForURL('http://localhost:3001/catalog')
+    ]);
+
+    await page.click('a[href="/create"]');
+    await page.waitForSelector('#create-form');
+
+    await page.fill('#title', 'Salems Lot');
+    await page.fill('#description', 'The best horror book');
+    await page.fill('#image', 'https://i.redd.it/n4chxmfxx8i11.jpg');
+    await page.selectOption('#type', 'Fiction');
+
+    await page.click('#create-form input[type="submit"]');
+
+    await page.waitForURL('http://localhost:3001/catalog');
+
+    expect(page.url()).toBe('http://localhost:3001/catalog');
+});
 
