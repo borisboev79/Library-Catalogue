@@ -24,6 +24,6 @@ jobs:
     - name: Start Server
       run: npm run start-be &
     - name: Start App
-      run: npm start
+      run: npm start &
     - name: Run UI Tests
       run: npm run test-ui
