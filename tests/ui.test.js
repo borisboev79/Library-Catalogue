@@ -186,4 +186,3 @@ test('Add book with correct data', async ({ page }) => {
     expect(page.url()).toBe('http://localhost:3001/catalog');
 });
 
-
