@@ -1,6 +1,5 @@
 //Added for this specific render.com
 
-import { config } from "process";
 import * as config from "../config.js";
 
 export const settings = config.settings.host;
